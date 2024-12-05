@@ -1,0 +1,33 @@
+﻿version: '3.4'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Your_Strong_Password!
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
+    networks:
+      - crud_network
+
+  webapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:8080"  # Altere a porta interna para 8080
+      # - "5000:80"
+    depends_on:
+      - sqlserver
+    networks:
+      - crud_network
+
+volumes:
+  sql_data:
+
+networks:
+  crud_network:

@@ -1,0 +1,18 @@
+﻿
+
+dotnet aspnet-codegenerator controller -name ProductsController -m Product -dc AppDbContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
+
+dotnet ef migrations add inicio
+
+dotnet ef database update
+
+docker-compose build
+
+docker-compose up
+
+
+docker-compose down
+
+docker-compose up --build
+
+
