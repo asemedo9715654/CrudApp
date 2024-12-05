@@ -29,7 +29,13 @@ jobs:
       - name: Build Docker Image
         run: |
           docker build -t vampcv/crudapp:latest .
-      
+
+       # Instalar Docker Compose
+      - name: Install Docker Compose
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker-compose
+          
       # Teste local (opcional)
       - name: Test Docker Image (Optional)
         run: |
