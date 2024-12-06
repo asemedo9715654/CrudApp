@@ -15,4 +15,27 @@ docker-compose down
 
 docker-compose up --build
 
+##############################################
+Para colocar no docker hub
+
+#Autenticação no Docker
+docker login
+
+
+#Criar a Imagem
+nomeutilizador/nomeimagem
+docker build -t vampcv/crudapp .
+
+
+#Testar a Imagem Localmente
+docker run -d -p 5000:8080 --name crudapp vampcv/crudapp
+
+
+#4. Publicar no Docker Hub
+docker push vampcv/crudapp
+
+gerar um docker-composer para orquestrar a aplicaçao
+
+
+
 

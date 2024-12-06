@@ -13,18 +13,15 @@ services:
       - sql_data:/var/opt/mssql
     networks:
       - crud_network
-
   webapp:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: vampcv/crudapp:latest
     ports:
-      - "5000:8080"  # Altere a porta interna para 8080
-      # - "5000:80"
+        - "5000:8080"
     depends_on:
-      - sqlserver
+        - sqlserver
     networks:
-      - crud_network
+        - crud_network
+
 
 volumes:
   sql_data:
