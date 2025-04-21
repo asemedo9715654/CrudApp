@@ -1,0 +1,34 @@
+
+#CRIAR TUNEL PARA APLICACAO
+minikube service minha-api
+minikube service webapp -n crud-app
+
+#APLICAÇÕES DOS CUMANDO
+kubectl apply -f namespace.yaml
+kubectl apply -f sql-pvc.yaml
+kubectl apply -f sql-deployment.yaml
+kubectl apply -f sql-service.yaml
+kubectl apply -f web-deployment.yaml
+kubectl apply -f web-service.yaml
+
+
+
+//--------------------------------------------------------------
+O que é o Minikube?
+Minikube é uma ferramenta que permite rodar um cluster Kubernetes localmente,
+ideal para testes, desenvolvimento e aprendizado. Ele cria uma máquina virtual
+(ou usa containers, dependendo do driver) em seu computador e implanta um 
+cluster Kubernetes de nó único.
+
+
+# Iniciar um cluster local
+minikube start
+
+# Verificar o status do cluster
+minikube status
+
+# Acessar o dashboard gráfico do Kubernetes
+minikube dashboard
+
+# Parar o cluster
+minikube stop
